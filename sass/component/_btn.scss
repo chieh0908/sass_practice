@@ -1,0 +1,12 @@
+.btm{
+    @include btm();
+}
+
+// .btn_large{
+//     @include btn(180px, #ff7b00);
+//     color: white;
+// }
+
+@include btn('default');
+@include btn('error', 200px, yellow, 10px);
+@include btn('large', 300px, red, 20px);

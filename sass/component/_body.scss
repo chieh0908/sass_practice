@@ -1,0 +1,29 @@
+body {
+    font-size: $fontSize;
+    background-color: $bgc;
+    color: #333;
+}
+
+.wrapper{
+    width: 100%;
+}
+
+.fixed{
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container{
+    background-color: #868686;
+    @include t(){
+        background-color: #203ec0
+    }
+    @include m(){
+        background-color: #30f86c;// _mixins.scss 宣告那段裡有加@content才能在這裏面在修改或新增
+    }
+}
+
+section{
+    @include layout(100);
+}

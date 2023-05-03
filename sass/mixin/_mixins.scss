@@ -1,0 +1,99 @@
+// 宣告函式 名 裡面有甚麼東西 mixin name(){裡面放屬性}
+@mixin center($w, $h, $color:null){ //$color:null  變數裡面:後可以帶參數 null下面就可以不用套顏色
+    margin: auto;
+    width: $w;
+    height: $h;
+    background-color: $color;
+}
+
+.a{
+    //呼叫
+    @include center(100px,200px, #ff0000);
+    // background-color: #ff0000;
+}
+
+.b{
+    @include center(500px, 200px);//上面宣告的$color:null 有null這邊就可以不用設顏色 
+    // background-color: #000;
+}
+
+
+// btn
+@mixin btm($w:120px,$bgc:#1e78ff){
+    max-width: $w;
+    text-align: center;
+    cursor: pointer;
+    background-color: $bgc;
+    border: 1px solid red;
+    padding: 8px 10px;
+    transition: all .3s ease;
+    &:hover{
+        background-color: darken($bgc, 20);
+    }
+}
+
+@mixin btn($style,$w:100px,$bgc:#1e78ff,$borderRadius:null){
+    .btn_#{$style}{
+        max-width: $w;
+        text-align: center;
+        cursor: pointer;
+        background-color: $bgc;
+        border: 1px solid red;
+        padding: 8px 10px;
+        transition: all .3s ease;
+        border-radius: $borderRadius;
+        &:hover{
+            background-color: darken($bgc, 20);
+        }
+    }
+ 
+}
+
+
+@mixin btnDefault($w:120px,$bgc:#1e78ff,$borderRadius:null){
+    max-width: $w;
+    text-align: center;
+    cursor: pointer;
+    background-color: $bgc;
+    border: 1px solid red;
+    padding: 8px 10px;
+    transition: all .3s ease;
+    border-radius: $border-Radius;
+    &:hover{
+        background-color: darken($bgc, 20);
+    }
+}
+
+// layout
+@mixin layout($w){
+    @if $w == 100{
+        width: 100%;
+    }@else{
+        width: $w;
+        margin: auto;
+    }
+}
+
+
+
+//rwd
+//桌機
+
+
+//手機
+@mixin m(){
+    @media all and (max-width: $m-breakpoint){//$m-breakpoint 定義在_var.scss裡
+        // code 手機板
+        @content; //加上這段 我在_body.scss呼叫的這段才能在裡面修改
+    }
+}
+
+@mixin t(){
+    @media all and (max-width: $t-breakpoint ){
+        // code 平板
+        @content;
+    }
+}
+
+
+

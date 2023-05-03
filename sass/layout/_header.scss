@@ -1,0 +1,45 @@
+/* nesting 巢狀寫法 */
+// nesting 巢狀寫法
+
+.wrapper {
+    .header {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        background-color: map-get($map: $color, $key: primary);
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .menu {
+            // width: 100%;
+            height: 80px;
+
+            ul {
+                list-style: none;
+
+                li {
+                    width: 120px;
+                    // color: black;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #fff;
+                    }
+
+                    &::after {
+                        //伪元素
+                        content: "--";
+                    }
+
+                    &::before {
+                        content: "--";
+                    }
+                }
+
+            }
+        }
+    }
+}

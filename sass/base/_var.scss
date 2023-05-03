@@ -1,0 +1,58 @@
+// 變數型態
+$fontSize: 20px; //數值
+
+$h1-space: 10px 20px; //數值型態 list
+
+// maps
+$title :(h1 : 40px,
+    h2 : 30px,
+    h3 : 20px,
+);
+
+
+
+
+// scope 作用域  權重
+
+$b : 20px;
+$b : 30px !default; //加上 !default 權重會提升  所以會吃到上面的 $b : 20px;
+
+span {
+    font-size: $b;
+}
+
+//---------
+
+// .c {
+//     $c: 30px !global; //區域變數 如果要變成全域變數的話 加上!global
+//     font-size: $c;
+// }
+
+// .d {
+//     font-size: $c;
+// }
+
+.ws{
+    width: 10 + 10 + px;
+    height: (20 - 10) * 1%;
+    margin: 10 * 10 + px;
+    padding: 10 + 20 * 3 + px;
+}
+
+//判斷式
+// @if
+// @else
+// @else if
+$borderRadius : true; //切換成false就會執行else
+
+.btn-outline{
+    @if $borderRadius{
+        border-radius: 8px;
+    }@else{
+        background-color: aqua;
+    }
+}
+
+//斷點
+$m-breakpoint: 576px;
+$t-breakpoint : 992px;

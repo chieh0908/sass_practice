@@ -1,0 +1,63 @@
+
+
+h3 {
+    // font-size: map-get($map: $title, $key: h3);
+    font-size: map-get($title, h3); //這樣寫就可以了
+}
+
+$a : 20; //全域變數  大家都取的到值
+
+h1 {
+    $a: 20; //區域變數  裡面會優先用區域變數 再到全域變數
+    margin: $h1-space;
+
+    // 可以在scss裡寫判斷式
+    @if $a>100 {
+        padding: $a + px;
+    }
+
+    @else {
+        padding: null;
+    }
+}
+
+h2 {
+    width: $a + px;
+}
+
+//each
+$list : a1 a2 a3 b1; //list
+
+@each $k in $list{
+    .banner_#{$k}{
+        background-image: url('./#{$k}.jpg');
+        width: 100%;
+    }
+}
+
+//maps
+$titles : (
+    h1 : 40px,
+    h2 : 36px,
+    h3 : 30px,
+    span : 16px,
+    body : 14px
+);
+
+@each $k , $v in $titles{
+    #{$k}{
+        font-size: $v;
+    }
+}
+
+//colors
+$colors : (
+    '.primary' : #f34E4E,
+    '.secondary' : #fff6EA
+);
+
+@each $k , $v in $colors{
+    #{$k}{
+        background-color: $v;
+    }
+}

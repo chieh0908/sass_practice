@@ -1,0 +1,33 @@
+@import './base/var';
+@import './base/font';
+@import './base/color';
+
+@import './mixin/mixins';
+
+@import './component/body';
+@import './component/btn';
+@import './component/card';
+@import './component/form';
+@import './component/title';
+@import './component/grid';
+
+
+@import './layout/footer';
+@import './layout/header';
+@import './layout/login';
+@import './layout/nav';
+
+@import './page/about';
+@import './page/main';
+
+
+//------
+// 如果你想在字串是使用一個變數，簡單來说，就是使用 `#{}` 来包裹這個變數。
+// 只要在 **url路徑 / class 名稱 / 屬性名稱** 都需要使用**字串轉變數**
+
+$class : top;
+
+.#{$class} {
+    top: 20px;
+}
+
